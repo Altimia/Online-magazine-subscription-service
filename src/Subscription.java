@@ -34,4 +34,12 @@ public class Subscription {
     public List<String> getSubscribedSupplements() {
         return this.subscribedSupplements;
     }
+
+    public Customer getAssociateCustomer() {
+        return this.associateCustomer;
+    }
+
+    public void setAssociateCustomer(Customer associateCustomer) {
+        this.associateCustomer = associateCustomer;
+    }
 }
