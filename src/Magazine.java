@@ -1,3 +1,4 @@
+import java.util.List;
 public class Magazine {
     private double weeklyCost;
     private List<String> supplements;

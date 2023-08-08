@@ -1,3 +1,4 @@
+import java.util.List;
 public class Subscription {
     private Customer customer;
     private List<String> subscribedSupplements;
