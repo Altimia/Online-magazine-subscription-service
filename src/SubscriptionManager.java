@@ -19,4 +19,16 @@ public class SubscriptionManager {
     public List<Subscription> getSubscriptions() {
         return this.subscriptions;
     }
+
+    public Optional<Subscription> getSubscriptionByCustomerEmail(String email) {
+        return this.subscriptions.stream()
+            .filter(subscription -> subscription.getCustomer().getEmail().equals(email))
+            .findFirst();
+    }
+
+    public List<Subscription> getSubscriptionsBySupplement(String supplement) {
+        return this.subscriptions.stream()
+            .filter(subscription -> subscription.getSubscribedSupplements().contains(supplement))
+            .collect(Collectors.toList());
+    }
 }
