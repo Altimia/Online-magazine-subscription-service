@@ -26,4 +26,12 @@ public class Subscription {
     public void removeAssociateCustomer() {
         this.associateCustomer = null;
     }
+
+    public Customer getCustomer() {
+        return this.customer;
+    }
+
+    public List<String> getSubscribedSupplements() {
+        return this.subscribedSupplements;
+    }
 }
