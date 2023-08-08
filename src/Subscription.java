@@ -9,8 +9,6 @@ public class Subscription {
         this.subscribedSupplements = new ArrayList<>();
     }
 
-    // getters and setters for customer, subscribedSupplements, and associateCustomer
-
     public void subscribe(String supplement) {
         this.subscribedSupplements.add(supplement);
     }

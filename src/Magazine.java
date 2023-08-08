@@ -8,7 +8,17 @@ public class Magazine {
         this.supplements = new ArrayList<>();
     }
 
-    // getters and setters for weeklyCost and supplements
+    public double getWeeklyCost() {
+        return this.weeklyCost;
+    }
+
+    public void setWeeklyCost(double weeklyCost) {
+        this.weeklyCost = weeklyCost;
+    }
+
+    public List<String> getSupplements() {
+        return this.supplements;
+    }
 
     public void addSupplement(String supplement) {
         this.supplements.add(supplement);
