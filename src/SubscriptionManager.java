@@ -32,4 +32,33 @@ public class SubscriptionManager {
             .filter(subscription -> subscription.getSubscribedSupplements().contains(supplement))
             .collect(Collectors.toList());
     }
+
+    public void subscribeCustomerToSupplement(String email, String supplement) {
+        Optional<Subscription> subscription = getSubscriptionByCustomerEmail(email);
+        if (subscription.isPresent()) {
+            subscription.get().subscribe(supplement);
+        }
+    }
+
+    public void unsubscribeCustomerFromSupplement(String email, String supplement) {
+        Optional<Subscription> subscription = getSubscriptionByCustomerEmail(email);
+        if (subscription.isPresent()) {
+            subscription.get().unsubscribe(supplement);
+        }
+    }
+
+    public void assignAssociateCustomerToPayingCustomer(String payingCustomerEmail, String associateCustomerEmail) {
+        Optional<Subscription> subscription = getSubscriptionByCustomerEmail(payingCustomerEmail);
+        Optional<Customer> associateCustomer = new CustomerManager().getCustomerByEmail(associateCustomerEmail);
+        if (subscription.isPresent() && associateCustomer.isPresent()) {
+            subscription.get().assignAssociateCustomer(associateCustomer.get());
+        }
+    }
+
+    public void removeAssociateCustomerFromPayingCustomer(String payingCustomerEmail) {
+        Optional<Subscription> subscription = getSubscriptionByCustomerEmail(payingCustomerEmail);
+        if (subscription.isPresent()) {
+            subscription.get().removeAssociateCustomer();
+        }
+    }
 }
