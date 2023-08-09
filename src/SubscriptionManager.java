@@ -43,18 +43,22 @@ public class SubscriptionManager {
     public void unsubscribeCustomerFromSupplement(String email, String supplement) {
         Optional<Subscription> subscription = getSubscriptionByCustomerEmail(email);
         if (subscription.isPresent()) {
-            subscription.get().unsubscribe(supplement);
-        }
+public class SubscriptionManager {
+    private List<Subscription> subscriptions;
+    private CustomerManager customerManager;
+
+    public SubscriptionManager(CustomerManager customerManager) {
+        this.subscriptions = new ArrayList<>();
+        this.customerManager = customerManager;
     }
 
     public void assignAssociateCustomerToPayingCustomer(String payingCustomerEmail, String associateCustomerEmail) {
         Optional<Subscription> subscription = getSubscriptionByCustomerEmail(payingCustomerEmail);
-        Optional<Customer> associateCustomer = new CustomerManager().getCustomerByEmail(associateCustomerEmail);
+        Optional<Customer> associateCustomer = this.customerManager.getCustomerByEmail(associateCustomerEmail);
         if (subscription.isPresent() && associateCustomer.isPresent()) {
             subscription.get().assignAssociateCustomer(associateCustomer.get());
         }
     }
-
     public void removeAssociateCustomerFromPayingCustomer(String payingCustomerEmail) {
         Optional<Subscription> subscription = getSubscriptionByCustomerEmail(payingCustomerEmail);
         if (subscription.isPresent()) {
