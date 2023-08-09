@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 public class Magazine {
     private double weeklyCost;
     private List<String> supplements;
