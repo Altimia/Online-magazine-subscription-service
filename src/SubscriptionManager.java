@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Optional;
 
 public class SubscriptionManager {
     private List<Subscription> subscriptions;
+    private CustomerManager customerManager;
 
-    public SubscriptionManager() {
+    public SubscriptionManager(CustomerManager customerManager) {
         this.subscriptions = new ArrayList<>();
+        this.customerManager = customerManager;
     }
 
     public void addSubscription(Subscription subscription) {
@@ -43,13 +46,8 @@ public class SubscriptionManager {
     public void unsubscribeCustomerFromSupplement(String email, String supplement) {
         Optional<Subscription> subscription = getSubscriptionByCustomerEmail(email);
         if (subscription.isPresent()) {
-public class SubscriptionManager {
-    private List<Subscription> subscriptions;
-    private CustomerManager customerManager;
-
-    public SubscriptionManager(CustomerManager customerManager) {
-        this.subscriptions = new ArrayList<>();
-        this.customerManager = customerManager;
+            subscription.get().unsubscribe(supplement);
+        }
     }
 
     public void assignAssociateCustomerToPayingCustomer(String payingCustomerEmail, String associateCustomerEmail) {
@@ -59,6 +57,7 @@ public class SubscriptionManager {
             subscription.get().assignAssociateCustomer(associateCustomer.get());
         }
     }
+
     public void removeAssociateCustomerFromPayingCustomer(String payingCustomerEmail) {
         Optional<Subscription> subscription = getSubscriptionByCustomerEmail(payingCustomerEmail);
         if (subscription.isPresent()) {
