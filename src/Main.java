@@ -13,7 +13,12 @@ public class Main {
     }
 
     public void initializeMagazine() {
-        // logic to initialize magazine
+        Supplement supplement1 = new Supplement("Supplement 1", 1.0);
+        Supplement supplement2 = new Supplement("Supplement 2", 2.0);
+        Supplement supplement3 = new Supplement("Supplement 3", 3.0);
+        this.magazine.addSupplement(supplement1);
+        this.magazine.addSupplement(supplement2);
+        this.magazine.addSupplement(supplement3);
     }
 
     public void initializeCustomers() {
