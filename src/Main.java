@@ -5,11 +5,13 @@ public class Main {
     private Magazine magazine;
     private List<Customer> customers;
     private CLI cli;
+    private SubscriptionManager subscriptionManager;
 
     public Main() {
         this.magazine = new Magazine(5.0);
         this.customers = new ArrayList<>();
         this.cli = new CLI();
+        this.subscriptionManager = new SubscriptionManager(new CustomerManager());
     }
 
     public void initializeMagazine() {
@@ -42,6 +44,14 @@ public class Main {
         this.customers.add(customer4);
         this.customers.add(customer5);
         this.customers.add(customer6);
+
+        // Initialize subscriptions for each customer
+        this.subscriptionManager.addSubscription(new Subscription(customer1));
+        this.subscriptionManager.addSubscription(new Subscription(customer2));
+        this.subscriptionManager.addSubscription(new Subscription(customer3));
+        this.subscriptionManager.addSubscription(new Subscription(customer4));
+        this.subscriptionManager.addSubscription(new Subscription(customer5));
+        this.subscriptionManager.addSubscription(new Subscription(customer6));
     }
 
     public void generateEmails() {
@@ -50,6 +60,15 @@ public class Main {
 
     public void handleUserInput() {
         // logic to handle user input
+        // Add logic to handle subscribing and unsubscribing customers to supplements
+        // This is a placeholder and should be replaced with actual implementation
+        String email = cli.promptForEmail();
+        String supplement = cli.promptForSupplement();
+        if (cli.promptForSubscribeOrUnsubscribe() == CLI.SUBSCRIBE) {
+            subscriptionManager.subscribeCustomerToSupplement(email, supplement);
+        } else {
+            subscriptionManager.unsubscribeCustomerFromSupplement(email, supplement);
+        }
     }
 
     public static void main(String[] args) {
