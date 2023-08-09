@@ -59,15 +59,63 @@ public class Main {
     }
 
     public void handleUserInput() {
-        // logic to handle user input
-        // Add logic to handle subscribing and unsubscribing customers to supplements
-        // This is a placeholder and should be replaced with actual implementation
-        String email = cli.promptForEmail();
-        String supplement = cli.promptForSupplement();
-        if (cli.promptForSubscribeOrUnsubscribe() == CLI.SUBSCRIBE) {
-            subscriptionManager.subscribeCustomerToSupplement(email, supplement);
-        } else {
-            subscriptionManager.unsubscribeCustomerFromSupplement(email, supplement);
+        boolean exit = false;
+        while (!exit) {
+            cli.displayMenu();
+            String choice = cli.takeUserInput();
+            switch (choice) {
+                case "1":
+                    // Add a new customer
+                    break;
+                case "2":
+                    // Remove an existing customer
+                    break;
+                case "3":
+                    // View details of all customers
+                    break;
+                case "4":
+                    // Edit the details of a customer
+                    break;
+                case "5":
+                    // Subscribe a customer to a supplement
+                    String email = cli.promptForEmail();
+                    String supplement = cli.promptForSupplement();
+                    subscriptionManager.subscribeCustomerToSupplement(email, supplement);
+                    break;
+                case "6":
+                    // Unsubscribe a customer from a supplement
+                    email = cli.promptForEmail();
+                    supplement = cli.promptForSupplement();
+                    subscriptionManager.unsubscribeCustomerFromSupplement(email, supplement);
+                    break;
+                case "7":
+                    // Set or update a customer's payment method
+                    break;
+                case "8":
+                    // Set the weekly cost of the main magazine
+                    break;
+                case "9":
+                    // Add a new supplement
+                    break;
+                case "10":
+                    // Remove an existing supplement
+                    break;
+                case "11":
+                    // Modify the details of a supplement
+                    break;
+                case "12":
+                    // Send weekly emails
+                    break;
+                case "13":
+                    // Send monthly emails
+                    break;
+                case "14":
+                    // Exit
+                    exit = true;
+                    break;
+                default:
+                    cli.displayMessage("Invalid choice. Please try again.");
+            }
         }
     }
 
