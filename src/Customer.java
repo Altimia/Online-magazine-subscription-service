@@ -30,4 +30,8 @@ public class Customer {
     public List<String> getInterestedSupplements() {
         return this.interestedSupplements;
     }
+
+    public void setInterestedSupplements(List<String> interestedSupplements) {
+        this.interestedSupplements = interestedSupplements;
+    }
 }
