@@ -66,15 +66,41 @@ public class Main {
             switch (choice) {
                 case "1":
                     // Add a new customer
+                    String name = cli.promptForName();
+                    String email = cli.promptForEmail();
+                    List<String> interestedSupplements = cli.promptForInterestedSupplements();
+                    Customer newCustomer = new Customer(name, email, interestedSupplements);
+                    this.customers.add(newCustomer);
+                    this.subscriptionManager.addSubscription(new Subscription(newCustomer));
                     break;
                 case "2":
                     // Remove an existing customer
+                    email = cli.promptForEmail();
+                    Customer customerToRemove = this.customers.stream().filter(c -> c.getEmail().equals(email)).findFirst().orElse(null);
+                    if (customerToRemove != null) {
+                        this.customers.remove(customerToRemove);
+                        Subscription subscriptionToRemove = this.subscriptionManager.getSubscriptionByCustomerEmail(email).orElse(null);
+                        if (subscriptionToRemove != null) {
+                            this.subscriptionManager.removeSubscription(subscriptionToRemove);
+                        }
+                    }
                     break;
                 case "3":
                     // View details of all customers
+                    this.customers.forEach(c -> System.out.println(c.toString()));
                     break;
                 case "4":
                     // Edit the details of a customer
+                    email = cli.promptForEmail();
+                    Customer customerToEdit = this.customers.stream().filter(c -> c.getEmail().equals(email)).findFirst().orElse(null);
+                    if (customerToEdit != null) {
+                        name = cli.promptForName();
+                        email = cli.promptForEmail();
+                        interestedSupplements = cli.promptForInterestedSupplements();
+                        customerToEdit.setName(name);
+                        customerToEdit.setEmail(email);
+                        customerToEdit.setInterestedSupplements(interestedSupplements);
+                    }
                     break;
                 case "5":
                     // Subscribe a customer to a supplement
