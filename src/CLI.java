@@ -33,4 +33,25 @@ public class CLI {
     public void displayMessage(String message) {
         System.out.println(message);
     }
+
+    public String promptForName() {
+        System.out.print("Enter name: ");
+        return scanner.nextLine();
+    }
+
+    public String promptForEmail() {
+        System.out.print("Enter email: ");
+        return scanner.nextLine();
+    }
+
+    public List<String> promptForInterestedSupplements() {
+        System.out.print("Enter names of interested supplements (comma-separated): ");
+        String supplements = scanner.nextLine();
+        return Arrays.asList(supplements.split(","));
+    }
+
+    public String promptForSupplement() {
+        System.out.print("Enter name of supplement: ");
+        return scanner.nextLine();
+    }
 }
