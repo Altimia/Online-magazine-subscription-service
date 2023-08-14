@@ -29,6 +29,15 @@ public class Magazine {
         this.supplements.remove(supplement);
     }
 
+    public Supplement getSupplementByName(String name) {
+        for (Supplement supplement : this.supplements) {
+            if (supplement.getName().equals(name)) {
+                return supplement;
+            }
+        }
+        return null;
+    }
+
     public void modifySupplement(String oldSupplement, String newSupplement) {
         int index = this.supplements.indexOf(oldSupplement);
         if (index != -1) {
