@@ -56,4 +56,9 @@ public class CLI {
         System.out.print("Enter name of supplement: ");
         return scanner.nextLine();
     }
+
+    public double promptForCost() {
+        System.out.print("Enter cost of supplement: ");
+        return Double.parseDouble(scanner.nextLine());
+    }
 }

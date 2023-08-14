@@ -122,12 +122,29 @@ public class Main {
                     break;
                 case "9":
                     // Add a new supplement
+                    String supplementName = cli.promptForSupplement();
+                    double supplementCost = cli.promptForCost();
+                    Supplement newSupplement = new Supplement(supplementName, supplementCost);
+                    this.magazine.addSupplement(newSupplement);
                     break;
                 case "10":
                     // Remove an existing supplement
+                    supplementName = cli.promptForSupplement();
+                    Supplement supplementToRemove = this.magazine.getSupplementByName(supplementName);
+                    if (supplementToRemove != null) {
+                        this.magazine.removeSupplement(supplementToRemove);
+                    }
                     break;
                 case "11":
                     // Modify the details of a supplement
+                    supplementName = cli.promptForSupplement();
+                    Supplement supplementToEdit = this.magazine.getSupplementByName(supplementName);
+                    if (supplementToEdit != null) {
+                        supplementName = cli.promptForSupplement();
+                        supplementCost = cli.promptForCost();
+                        supplementToEdit.setName(supplementName);
+                        supplementToEdit.setCost(supplementCost);
+                    }
                     break;
                 case "12":
                     // Send weekly emails
