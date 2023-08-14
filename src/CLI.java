@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.Arrays;
 
 public class CLI {
     private Scanner scanner;
