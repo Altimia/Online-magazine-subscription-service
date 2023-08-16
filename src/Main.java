@@ -116,6 +116,20 @@ public class Main {
                     break;
                 case "7":
                     // Set or update a customer's payment method
+                    email = cli.promptForEmail();
+                    Customer customerToUpdatePayment = this.customers.stream().filter(c -> c.getEmail().equals(email)).findFirst().orElse(null);
+                    if (customerToUpdatePayment != null) {
+                        String paymentMethodType = cli.promptForPaymentMethodType();
+                        if (paymentMethodType.equals("Bank Account")) {
+                            String accountNumber = cli.promptForAccountNumber();
+                            BankAccount bankAccount = new BankAccount(accountNumber);
+                            customerToUpdatePayment.setPaymentMethod(bankAccount);
+                        } else if (paymentMethodType.equals("Credit Card")) {
+                            String cardNumber = cli.promptForCardNumber();
+                            CreditCard creditCard = new CreditCard(cardNumber);
+                            customerToUpdatePayment.setPaymentMethod(creditCard);
+                        }
+                    }
                     break;
                 case "8":
                     // Set the weekly cost of the main magazine
