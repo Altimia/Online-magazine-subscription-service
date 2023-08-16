@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Main {
     private Magazine magazine;
@@ -104,7 +105,7 @@ public class Main {
                     break;
                 case "5":
                     // Subscribe a customer to a supplement
-                    String email = cli.promptForEmail();
+                    email = cli.promptForEmail();
                     String supplement = cli.promptForSupplement();
                     subscriptionManager.subscribeCustomerToSupplement(email, supplement);
                     break;
