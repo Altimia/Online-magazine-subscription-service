@@ -133,6 +133,8 @@ public class Main {
                     break;
                 case "8":
                     // Set the weekly cost of the main magazine
+                    double newWeeklyCost = cli.promptForCost();
+                    this.magazine.setWeeklyCost(newWeeklyCost);
                     break;
                 case "9":
                     // Add a new supplement
