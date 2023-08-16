@@ -61,4 +61,19 @@ public class CLI {
         System.out.print("Enter cost of supplement: ");
         return Double.parseDouble(scanner.nextLine());
     }
+
+    public String promptForPaymentMethodType() {
+        System.out.print("Enter type of payment method (Bank Account or Credit Card): ");
+        return scanner.nextLine();
+    }
+
+    public String promptForAccountNumber() {
+        System.out.print("Enter bank account number: ");
+        return scanner.nextLine();
+    }
+
+    public String promptForCardNumber() {
+        System.out.print("Enter credit card number: ");
+        return scanner.nextLine();
+    }
 }

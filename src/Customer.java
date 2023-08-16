@@ -27,11 +27,21 @@ public class Customer {
         this.email = email;
     }
 
+    private PaymentMethod paymentMethod;
+
     public List<String> getInterestedSupplements() {
         return this.interestedSupplements;
     }
 
     public void setInterestedSupplements(List<String> interestedSupplements) {
         this.interestedSupplements = interestedSupplements;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return this.paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }
