@@ -19,9 +19,9 @@ public class Main {
         Supplement supplement1 = new Supplement("Supplement 1", 1.0);
         Supplement supplement2 = new Supplement("Supplement 2", 2.0);
         Supplement supplement3 = new Supplement("Supplement 3", 3.0);
-        this.magazine.addSupplement(supplement1);
-        this.magazine.addSupplement(supplement2);
-        this.magazine.addSupplement(supplement3);
+        this.magazine.addSupplement(supplement1.getName());
+        this.magazine.addSupplement(supplement2.getName());
+        this.magazine.addSupplement(supplement3.getName());
     }
 
     public void initializeCustomers() {
