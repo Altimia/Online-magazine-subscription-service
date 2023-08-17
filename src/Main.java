@@ -142,7 +142,7 @@ public class Main {
                     String supplementName = cli.promptForSupplement();
                     double supplementCost = cli.promptForCost();
                     Supplement newSupplement = new Supplement(supplementName, supplementCost);
-                    this.magazine.addSupplement(newSupplement);
+                    this.magazine.addSupplement(newSupplement.getName());
                     break;
                 case "10":
                     // Remove an existing supplement
