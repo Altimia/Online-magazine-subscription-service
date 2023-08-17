@@ -21,7 +21,7 @@ public class EmailNotification {
         // For example, if you're using JavaMail:
         // sendEmail(customer.getEmail(), "Your Weekly Magazine", emailContent);
     }
-
+/* 
     public void sendMonthlyEmail() {
         // Create email content
         String emailContent = "Dear " + customer.getName() + ",\n\nHere are the charges for this month:\n";
@@ -36,3 +36,4 @@ public class EmailNotification {
         // sendEmail(customer.getEmail(), "Your Monthly Charges", emailContent);
     }
 }
+*/
