@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 public class Magazine {
     private double weeklyCost;
     private List<String> supplements;
@@ -29,8 +30,8 @@ public class Magazine {
         this.supplements.remove(supplement);
     }
 
-    public List<Supplement> getSupplementsByName(List<String> names) {
-        return this.supplements.stream()
+    public List<Supplement> getSupplementsByName(List<Supplement> supplements, List<String> names) {
+        return supplements.stream()
             .filter(supplement -> names.contains(supplement.getName()))
             .collect(Collectors.toList());
     }
