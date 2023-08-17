@@ -22,7 +22,7 @@ public class Magazine {
         return this.supplements;
     }
 
-    public void addSupplement(Supplement supplement) {
+    public void addSupplement(String supplement) {
         this.supplements.add(supplement);
     }
 
