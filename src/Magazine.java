@@ -35,6 +35,13 @@ public class Magazine {
             .collect(Collectors.toList());
     }
 
+    public Supplement getSupplementByName(String name) {
+        return this.supplements.stream()
+            .filter(supplement -> supplement.getName().equals(name))
+            .findFirst()
+            .orElse(null);
+    }
+
     public void modifySupplement(String oldSupplement, String newSupplement) {
         int index = this.supplements.indexOf(oldSupplement);
         if (index != -1) {
