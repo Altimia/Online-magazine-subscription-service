@@ -56,7 +56,7 @@ public class Main {
     }
 
     public void generateEmails() {
-        // logic to generate emails
+        // removed
     }
 
     public void handleUserInput() {
@@ -92,11 +92,11 @@ public class Main {
                     break;
                 case "4":
                     // Edit the details of a customer
-                    email = cli.promptForEmail();
-                    Customer customerToEdit = this.customers.stream().filter(c -> c.getEmail().equals(email)).findFirst().orElse(null);
+                    String editEmail = cli.promptForEmail();
+                    Customer customerToEdit = this.customers.stream().filter(c -> c.getEmail().equals(editEmail)).findFirst().orElse(null);
                     if (customerToEdit != null) {
                         name = cli.promptForName();
-                        email = cli.promptForEmail();
+                        email = editEmail;
                         interestedSupplements = cli.promptForInterestedSupplements();
                         customerToEdit.setName(name);
                         customerToEdit.setEmail(email);
