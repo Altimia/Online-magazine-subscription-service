@@ -15,7 +15,7 @@ public class Supplement {
         this.name = name;
     }
 
-    public double getCost() {
+    public double getPrice() {
         return this.cost;
     }
 

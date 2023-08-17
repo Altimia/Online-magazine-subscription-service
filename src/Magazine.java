@@ -29,13 +29,10 @@ public class Magazine {
         this.supplements.remove(supplement);
     }
 
-    public Supplement getSupplementByName(String name) {
-        for (Supplement supplement : this.supplements) {
-            if (supplement.getName().equals(name)) {
-                return supplement;
-            }
-        }
-        return null;
+    public List<Supplement> getSupplementsByName(List<String> names) {
+        return this.supplements.stream()
+            .filter(supplement -> names.contains(supplement.getName()))
+            .collect(Collectors.toList());
     }
 
     public void modifySupplement(String oldSupplement, String newSupplement) {
