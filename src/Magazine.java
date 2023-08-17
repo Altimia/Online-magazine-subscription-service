@@ -26,7 +26,7 @@ public class Magazine {
         this.supplements.add(supplement);
     }
 
-    public void removeSupplement(Supplement supplement) {
+    public void removeSupplement(String supplement) {
         this.supplements.remove(supplement);
     }
 
