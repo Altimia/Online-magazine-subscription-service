@@ -34,6 +34,5 @@ public class EmailNotification {
         // Send email (this will depend on the email service you're using)
         // For example, if you're using JavaMail:
         // sendEmail(customer.getEmail(), "Your Monthly Charges", emailContent);
-    }
+    }*/
 }
-*/
