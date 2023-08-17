@@ -43,9 +43,9 @@ public class Magazine {
         }
     }
 
-    public Supplement getSupplementByName(String name) {
-        for (Supplement supplement : this.supplements) {
-            if (supplement.getName().equals(name)) {
+    public String getSupplementByName(String name) {
+        for (String supplement : this.supplements) {
+            if (supplement.equals(name)) {
                 return supplement;
             }
         }
